@@ -1,12 +1,14 @@
 <template>
-	<h1 class="h1-title">Personal Rating:</h1>
+	<h1 class="h1-title">Global Rating:</h1>
 	<div class="table-wrapper">
 		<div class="head-table">
+			<div class="text-head">Name</div>
 			<div class="text-head">Template</div>
 			<div class="text-head">Description</div>
 			<div class="text-head cancel">Time</div>
 		</div>
 		<div class="table-data" v-for="data in tableData" :key="data.id">
+			<div class="text-data">{{ data.author }}</div>
 			<div class="text-data">{{ data.problem.name }}</div>
 			<div class="text-data align-text">{{ data.problem.description }}</div>
 			<div class="text-data">{{ data.time }}</div>
@@ -18,7 +20,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-	name: 'PersonalRating',
+	name: 'GlobalRating',
 	computed: {
 		...mapGetters(['getToken']),
 	},
@@ -28,7 +30,7 @@ export default {
 		}
 	},
 	created() {
-		this.$http.get('/api/v1/problems/personal', {
+		this.$http.get('/api/v1/problems/top', {
 				headers: 
 				{
 					'Authorization' : this.getToken,
@@ -36,6 +38,7 @@ export default {
 		})
 			.then(response => {
 				this.tableData = response.data;
+				console.log(this.tableData);
 			})
 			.catch(error => {
 				console.warn(error);
@@ -61,7 +64,7 @@ export default {
 .head-table
 {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .text-head
@@ -89,7 +92,7 @@ export default {
 .table-data
 {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .text-data

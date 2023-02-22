@@ -13,6 +13,11 @@ const routes = [
 		component: () => import('../components/PersonalRating.vue')
 	},
 	{
+		path: '/global-rating',
+		name: 'GlobalRating',
+		component: () => import('../components/GlobalRating.vue')
+	},
+	{
 		path: '/about-us',
 		name: 'AboutUs',
 		component: () => import('../components/AboutUs.vue')

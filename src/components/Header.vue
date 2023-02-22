@@ -3,7 +3,7 @@
 		<div class="header-content">
 			<router-link to="/" :class="['menu-button', { 'active' : routerName === 'Home'}]">Solving Problems</router-link>
 			<router-link to="/personal-rating" :class="['menu-button', { active : routerName === 'PersonalRating'}]">Personal Progress</router-link>
-			<router-link to="/" :class="['menu-button', { 'active' : routerName === ''}]">Rating</router-link>
+			<router-link to="/global-rating" :class="['menu-button', { 'active' : routerName === ''}]">Rating</router-link>
 			<router-link to="/about-us" :class="['menu-button', { 'active' : routerName === ''}]">About us</router-link>
 		</div>
 	</header>
