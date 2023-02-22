@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import PopupSystem from '../scripts/PopupSystem';
 import { mapMutations, mapGetters } from 'vuex';
 export default {
 	name: 'test',
@@ -17,19 +16,16 @@ export default {
 	methods: {
 		...mapMutations(['setToken', 'setName', 'setTasks', 'deactivateActivePopup']),
 		post() {
-			const fullName = document.getElementById('fullName').value;
 			const logIn = document.getElementById('login').value;
 			const password = document.getElementById('password').value;
 
 			const dto = {
-				id: logIn,
 				login: logIn,
-				fullName: fullName,
+				password: password,
 			}
-			this.$http.post('/api/v1/auth', dto, {params: {password: password}})
+			this.$http.post('/api/v1/auth', dto)
 				.then(response => {
 					this.setToken(response.data.token);
-					this.setName(fullName);
 					this.deactivateActivePopup();
 					this.getTasks();
 				})
