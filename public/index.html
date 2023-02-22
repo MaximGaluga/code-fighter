@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		
+		<link rel="icon" href="logo.png">
+		
+		<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+			integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+			crossorigin="anonymous">
+		</script>
+		<script src="/scripts/owl.carousel.min.js"></script>
+		<script>
+			window.onblur=function(){
+				//change favicon
+				document.title='Let\'s code again';
+			}
+			window.onfocus=function(){
+				document.title= 'CodeFighter';
+			}
+		</script>
+		<link rel="stylesheet" href="/css/owl.carousel.min.css">
+		
+		<title>CodeFighter</title>
+	</head>
+	<body>
+		<noscript>
+		<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+		</noscript>
+		<div id="app"></div>
+		<!-- built files will be auto injected -->
+	</body>
+</html>
