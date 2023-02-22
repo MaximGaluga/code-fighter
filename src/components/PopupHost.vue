@@ -9,7 +9,8 @@ import { mapState } from 'vuex';
 import PopupSystem from '../scripts/PopupSystem'
 import Autorisation from '../popups/Autorisation.vue'
 import SignUp from '../popups/SignUp.vue'
-import ResultSolveProblem from '../popups/ResultSolveProblem.vue';
+import ResultSolveProblem from '../popups/ResultSolveProblem.vue'
+import LogIn from '../popups/LogIn.vue';
 
 export default {
 	name: 'PopupHost',
@@ -22,6 +23,8 @@ export default {
 		PopupSystem.registerPopup('autorisation', Autorisation);
 		PopupSystem.registerPopup('signUp', SignUp);
 		PopupSystem.registerPopup('resultSolveProblem', ResultSolveProblem);
+		PopupSystem.registerPopup('logIn', LogIn);
+
 
 		PopupSystem.invokePopup('autorisation');
 	},

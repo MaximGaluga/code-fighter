@@ -14,7 +14,7 @@ export default {
 	name: 'test',
 	methods: {
 		logIn() {
-
+			PopupSystem.invokePopup('logIn');
 		},
 		signUp() {
 			PopupSystem.invokePopup('signUp');

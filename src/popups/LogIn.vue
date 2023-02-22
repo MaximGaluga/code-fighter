@@ -1,6 +1,5 @@
 <template>
-	<div class="sign-up-wrapper">
-		<input id="fullName" type="text" placeholder="Full Name..."/>
+	<div class="login-up-wrapper">
 		<input id="login" type="text" placeholder="Login..."/>
 		<input id="password" type="password" placeholder="Password..."/>
 		<div class="button-confirm" @click="post">Confirm</div>
@@ -17,9 +16,6 @@ export default {
 	},
 	methods: {
 		...mapMutations(['setToken', 'setName', 'setTasks', 'deactivateActivePopup']),
-		logIn() {
-			PopupSystem.invokePopup('logIn');
-		},
 		post() {
 			const fullName = document.getElementById('fullName').value;
 			const logIn = document.getElementById('login').value;
@@ -30,7 +26,7 @@ export default {
 				login: logIn,
 				fullName: fullName,
 			}
-			this.$http.post('/api/v1/auth/register', dto, {params: {password: password}})
+			this.$http.post('/api/v1/auth', dto, {params: {password: password}})
 				.then(response => {
 					this.setToken(response.data.token);
 					this.setName(fullName);
@@ -60,7 +56,7 @@ export default {
 </script>
 
 <style>
-.sign-up-wrapper
+.login-up-wrapper
 {
 	display: flex;
 	flex-direction: column;
