@@ -20,8 +20,16 @@ export default {
 </script>
 
 <style>
+.about-us-wrapper
+{
+	display: flex;
+	flex-direction: column;
+}
+
 .photo 
 {
 	
+	max-width: 300px;
+	max-height: 300px;
 }
 </style>

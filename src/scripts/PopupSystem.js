@@ -10,7 +10,10 @@ class PopupSystem
 		this.host = host;
 	}
 	registerPopup(id, popup) {
-		this.popupDefs[id] = popup;
+		this.popupDefs[id] = {
+			type: popup,
+			props: {},
+		}
 	}
 
 	invokePopup(id, props) {

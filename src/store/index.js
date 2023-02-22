@@ -13,8 +13,8 @@ const vuexInitData = {
 	},
 	mutations: {
 		setActivePopup(state, activePopup) {
+			state.activePopupType = markRaw(activePopup.type);
 			state.activePopupTypeProps = activePopup.props;
-			state.activePopupType = markRaw(activePopup);
 		},
 		deactivateActivePopup(state) {
 			state.activePopupType = null;

@@ -1,36 +1,41 @@
 <template>
-	<div class="autorisation-wrapper">
-		<div class="card"></div>
-		<div class="buttons-wrapper">
-			<div class="log-in" @click="logIn">Log in</div>
-			<div class="sign-up" @click="signUp">Sign up</div>
+	<div class="code-results-wrapper">
+		<div class="result-status">
+			<div class="result-text">{{ modelValue.name }}</div>
+			<div :class="['result-text-status', { 'green' : modelValue.status === 'SUCCESS', 'red' : modelValue.status === 'FAIL' }]">{{ modelValue.status }}</div>
+			<div class="error" v-if="modelValue.status === 'FAIL'">{{ modelValue.stderr }}</div>
+			<div class="time" v-if="modelValue.status !== 'FAIL'">{{ modelValue.time }}ms</div>
+		</div>
+		<div class="button-wrapper">
+			<div class="button-ok" @click="closePopup">Ok</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import PopupSystem from '../scripts/PopupSystem';
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
 	name: 'ResultSolveProblem',
 	computed: {
 		...mapGetters(['getActivePopupProps']),
 	},
+	props: {
+		modelValue: Object
+	},
 	methods: {
-		logIn() {
-			console.log(activePopupTypeProps)
-		},
-		signUp() {
-			PopupSystem.invokePopup('signUp');
+		...mapMutations(['deactivateActivePopup']),
+		closePopup() {
+			this.deactivateActivePopup();
 		},
 	},
 }
 </script>
 
 <style>
-.autorisation-wrapper
+.code-results-wrapper
 {
+	min-width: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -41,25 +46,50 @@ export default {
 	gap: 30px;
 }
 
-.buttons-wrapper
+.result-status
+{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.button-wrapper
 {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	gap: 30px;
 }
 
-
-
-.sign-up
+.button-ok 
 {
+	color: #444343;
+	padding: 15px 15px;
+	border: 2px solid #88b4f3;
+	border-radius: 8px;
 	cursor: pointer;
-
 }
 
-.log-in
+.button-ok:hover
 {
-	cursor: pointer;
+	color: aliceblue;
+	background-color: #88b4f3;
+}
+
+.error
+{
+	color: red;
+}
+
+.green
+{
+	color: green;
+	font-weight: bold;
+}
+
+.red
+{
+	color: red;
+	font-weight: bold;
 }
 </style>
