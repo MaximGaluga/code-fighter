@@ -1,28 +1,30 @@
 <template>
-	<div class="popup-host" @wheel.prevent v-show="getActivePopup">
-		<component :is="getActivePopup"></component>
+	<div class="popup-host" @wheel.prevent v-show="activePopupType">
+		<component :is="activePopupType" v-model="activePopupTypeProps"></component>
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 import PopupSystem from '../scripts/PopupSystem'
 import Autorisation from '../popups/Autorisation.vue'
 import SignUp from '../popups/SignUp.vue'
+import ResultSolveProblem from '../popups/ResultSolveProblem.vue';
 
 export default {
 	name: 'PopupHost',
 	computed: {
-		...mapGetters(['getActivePopup']),
+		...mapState(['activePopupType', 'activePopupTypeProps']),
 	},
 	mounted() {
 		PopupSystem.init(this);
 
 		PopupSystem.registerPopup('autorisation', Autorisation);
 		PopupSystem.registerPopup('signUp', SignUp);
+		PopupSystem.registerPopup('resultSolveProblem', ResultSolveProblem);
 
-		// PopupSystem.invokePopup('autorisation');
-	}
+		PopupSystem.invokePopup('autorisation');
+	},
 }
 
 </script>

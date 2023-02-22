@@ -1,6 +1,6 @@
 <template>
 	<div class="autorisation-wrapper">
-		<div class="card">Choose your action</div>
+		<div class="card"></div>
 		<div class="buttons-wrapper">
 			<div class="log-in" @click="logIn">Log in</div>
 			<div class="sign-up" @click="signUp">Sign up</div>
@@ -10,11 +10,16 @@
 
 <script>
 import PopupSystem from '../scripts/PopupSystem';
+import { mapGetters } from 'vuex'
+
 export default {
-	name: 'test',
+	name: 'ResultSolveProblem',
+	computed: {
+		...mapGetters(['getActivePopupProps']),
+	},
 	methods: {
 		logIn() {
-
+			console.log(activePopupTypeProps)
 		},
 		signUp() {
 			PopupSystem.invokePopup('signUp');
@@ -49,32 +54,12 @@ export default {
 
 .sign-up
 {
-	color: #444343;
-	padding: 10px 10px;
-	border: 2px solid #88b4f3;
-	border-radius: 8px;
 	cursor: pointer;
 
-}
-
-.sign-up:hover
-{
-	color: aliceblue;
-	background-color: #88b4f3;
 }
 
 .log-in
 {
-	color: #444343;
-	padding: 10px 16px;
-	border: 2px solid #88b4f3;
-	border-radius: 8px;
 	cursor: pointer;
-}
-
-.log-in:hover
-{
-	color: aliceblue;
-	background-color: #88b4f3;
 }
 </style>

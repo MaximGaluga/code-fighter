@@ -13,9 +13,11 @@ class PopupSystem
 		this.popupDefs[id] = popup;
 	}
 
-	invokePopup(id) {
+	invokePopup(id, props) {
 		if (this.host && this.popupDefs[id]) {
-			this.host.$store.commit('setActivePopup', this.popupDefs[id]);
+			const popupDef = this.popupDefs[id];
+			popupDef.props = props;
+			this.host.$store.commit('setActivePopup', popupDef);
 		}
 	}
 	

@@ -1,10 +1,10 @@
 <template>
 	<header class="header-generic-wrapper">
 		<div class="header-content">
-			<router-link to="/" :class="['menu-button', { active : routerName === 'Home'}]">Решаем задачи</router-link>
-			<router-link to="/personal-rating" :class="['menu-button', { active : routerName === 'PersonalRating'}]">Личный прогресс</router-link>
-			<router-link to="/" :class="['menu-button', { active : routerName === 'PersonalRating'}]">Рейтинг</router-link>
-			<router-link to="/" :class="['menu-button', { active : routerName === 'PersonalRating'}]">Подписка на наш сервис</router-link>
+			<router-link to="/" :class="['menu-button', { 'active' : routerName === 'Home'}]">Solving Problems</router-link>
+			<router-link to="/personal-rating" :class="['menu-button', { active : routerName === 'PersonalRating'}]">Personal Progress</router-link>
+			<router-link to="/" :class="['menu-button', { 'active' : routerName === ''}]">Rating</router-link>
+			<router-link to="/" :class="['menu-button', { 'active' : routerName === ''}]">About us</router-link>
 		</div>
 	</header>
 </template>
@@ -29,7 +29,7 @@ export default {
 	position: sticky;
 	top: 0;
 	z-index: 1;
-	/* background: #fffcfc; */
+	background: #fffcfc;
 }
 
 .header-content

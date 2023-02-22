@@ -3,15 +3,23 @@
 		<div class="about">
 			<span>Maxim Galuga</span>
 			<div class="contacts">
-				<a href="https://t.me/maximmagic" target="_blank">Telegram: @maximmagic</a>
-				<a href="https://www.instagram.com/maxim__magic/" target="_blank">Instagram: @maxim__magic</a>
+				<div class="link">
+					<a href="https://t.me/maximmagic" target="_blank">Telegram: @maximmagic</a>
+				</div>
+				<div class="link">
+					<a href="https://www.instagram.com/maxim__magic/" target="_blank">Instagram: @maxim__magic</a>
+				</div>
 			</div>
 		</div>
 		<div class="about">
 			<span>Lipsky Rostislav</span>
 			<div class="contacts">
-				<a href="https://t.me/clowdeep" target="_blank">Telegram: @clowdeep</a>
-				<a href="https://www.instagram.com/almaztexxtil/" target="_blank">Instagram: @almaztexxtil</a>
+				<div class="link">
+					<a href="https://t.me/clowdeep" target="_blank">Telegram: @clowdeep</a>
+				</div>
+				<div class="link">
+					<a href="https://www.instagram.com/almaztexxtil/" target="_blank">Instagram: @almaztexxtil</a>
+				</div>
 			</div>
 
 		</div>
@@ -52,5 +60,11 @@ a
 {
 	text-decoration: none;
 	color: #FFFFFF;
+}
+
+.link
+{
+	display: flex;
+	justify-content: center;
 }
 </style>

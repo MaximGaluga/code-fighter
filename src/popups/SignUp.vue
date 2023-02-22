@@ -13,11 +13,10 @@ import { mapMutations, mapGetters, mapState } from 'vuex';
 export default {
 	name: 'test',
 	computed: {
-		...mapState(['activePopupType']),
 		...mapGetters(['getToken']),
 	},
 	methods: {
-		...mapMutations(['setToken', 'setName']),
+		...mapMutations(['setToken', 'setName', 'setTasks', 'deactivateActivePopup']),
 		logIn() {
 			PopupSystem.invokePopup('logIn');
 		},
@@ -35,11 +34,26 @@ export default {
 				.then(response => {
 					this.setToken(response.data.token);
 					this.setName(fullName);
-					this.activePopupType.component = null;
+					this.deactivateActivePopup();
+					this.getTasks();
 				})
 				.catch(error => {
 					console.warn(error);
 				});
+		},
+		getTasks() {
+			this.$http.get('/api/v1/problems', {
+				headers: 
+				{
+					'Authorization' : this.getToken,
+				}
+			})
+				.then(response => {
+					this.setTasks(response.data);
+				})
+				.catch(error => {
+					console.warn(error);
+				})
 		}
 	},
 }
@@ -55,7 +69,7 @@ export default {
 	box-shadow: 5px 4px 9px rgba(41, 41, 41, 0.03);
 	border-radius: 10px;
 	padding: 40px;
-	gap: 30px;
+	gap: 15px;
 }
 
 .buttons-wrapper
@@ -69,6 +83,30 @@ export default {
 
 .button-confirm
 {
+	color: #444343;
+	padding: 15px 10px;
+	border: 2px solid #88b4f3;
+	border-radius: 8px;
+	margin-top: 20px;
 	cursor: pointer;
+}
+
+.button-confirm:hover
+{
+	color: aliceblue;
+	background-color: #88b4f3;
+}
+
+input 
+{
+	font-size: 15px;
+	padding: 15px;
+	border: 1px solid #9A9A9A;
+	border-radius: 8px;
+}
+
+input:focus
+{
+	border: 1px solid #515151;
 }
 </style>
