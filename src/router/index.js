@@ -13,6 +13,11 @@ const routes = [
 		component: () => import('../components/PersonalRating.vue')
 	},
 	{
+		path: '/about-us',
+		name: 'AboutUs',
+		component: () => import('../components/AboutUs.vue')
+	},
+	{
 		path: '/:pathMatch(.*)*',
 		name: 'NotFoundView',
 		component: () => import('../views/NotFoundView.vue')

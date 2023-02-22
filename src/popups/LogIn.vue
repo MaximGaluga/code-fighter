@@ -26,6 +26,7 @@ export default {
 			this.$http.post('/api/v1/auth', dto)
 				.then(response => {
 					this.setToken(response.data.token);
+					this.setName(response.data.userId);
 					this.deactivateActivePopup();
 					this.getTasks();
 				})

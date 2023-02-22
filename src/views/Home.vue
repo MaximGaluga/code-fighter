@@ -45,7 +45,7 @@ export default {
 		},
 		post() {
 			const dto = this.code;
-			this.$http.post(`/api/v1/problems/${ this.currentTaskId }`, dto, { headers: {'Authorization' : this.getToken, 'Content-Type' : 'application/json'} })
+			this.$http.post(`/api/v1/problems/${ this.currentTaskId }`, {code: dto}, { headers: {'Authorization' : this.getToken, 'Content-Type' : 'application/json'} })
 				.then(response => {
 					PopupSystem.invokePopup('resultSolveProblem', response.data)
 				})
