@@ -1,12 +1,12 @@
 <template>
 	<h1 class="h1-title">Personal Rating:</h1>
 	<div class="table-wrapper">
-		<div class="head-table">
+		<div class="head-table-personal">
 			<div class="text-head">Template</div>
 			<div class="text-head">Description</div>
 			<div class="text-head cancel">Time</div>
 		</div>
-		<div class="table-data" v-for="data in tableData" :key="data.id">
+		<div class="table-data-personal" v-for="data in tableData" :key="data.id">
 			<div class="text-data">{{ data.problem.name }}</div>
 			<div class="text-data align-text">{{ data.problem.description }}</div>
 			<div class="text-data">{{ data.time }}</div>
@@ -58,7 +58,7 @@ export default {
 	margin-bottom: 150px;
 }
 
-.head-table
+.head-table-personal
 {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -86,7 +86,7 @@ export default {
 	text-align: left;
 }
 
-.table-data
+.table-data-personal
 {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;

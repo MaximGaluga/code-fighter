@@ -38,7 +38,6 @@ export default {
 		})
 			.then(response => {
 				this.tableData = response.data;
-				console.log(this.tableData);
 			})
 			.catch(error => {
 				console.warn(error);
