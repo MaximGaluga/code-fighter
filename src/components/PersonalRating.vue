@@ -107,4 +107,16 @@ export default {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+
+@media screen and (max-width: 800px) 
+{
+	.text-head
+	{
+		font-size: 10px;
+	}
+	.text-data
+	{
+		font-size: 10px;
+	}
+}
 </style>

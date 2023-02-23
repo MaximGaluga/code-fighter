@@ -28,6 +28,10 @@ export default {
 </script>
 
 <style>
+h1
+{
+	margin-top: 100px;
+}
 .about-us-wrapper
 {
 	display: flex;
@@ -56,5 +60,20 @@ export default {
 	flex-direction: row;
 	justify-content: flex-end;
 	gap: 50px;
+}
+
+@media screen and (max-width: 800px) 
+{
+	.maxim-info
+	{
+		flex-direction: column-reverse;
+		gap: 0;
+	}
+
+	.rostislav-info
+	{
+		flex-direction: column;
+		gap: 0;
+	}
 }
 </style>

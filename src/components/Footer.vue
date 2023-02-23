@@ -46,6 +46,7 @@ footer
 {
 	display: flex;
 	flex-direction: column;
+	font-size: 15px;
 }
 
 .contacts
