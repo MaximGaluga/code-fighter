@@ -66,24 +66,4 @@ body
 	display: flex;
 	flex-direction: column;
 }
-
-@media screen and (max-width:1400px)
-{
-
-.content-wrapper
-{
-	padding-top: 70px;
-}
-
-}
-
-@media screen and (max-width:1200px)
-{
-
-.content-wrapper
-{
-	padding-top: 50px;
-}
-
-}
 </style>

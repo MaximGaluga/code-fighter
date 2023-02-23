@@ -92,4 +92,13 @@ export default {
 	color: red;
 	font-weight: bold;
 }
+
+@media screen and (max-width: 800px) 
+{
+	.code-results-wrapper
+	{
+		max-width: 280px;
+	}
+	
+}
 </style>

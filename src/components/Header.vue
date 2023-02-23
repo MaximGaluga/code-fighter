@@ -66,7 +66,7 @@ export default {
 	text-underline-offset: 5px;
 }
 
-@media screen and (max-width: 800px) 
+@media screen and (max-width: 1120px)
 {
 	.header-content
 	{
